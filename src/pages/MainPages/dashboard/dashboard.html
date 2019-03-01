@@ -9,16 +9,13 @@
 
 
 <ion-content padding>
-  <button ion-button float-right color="dark">
-    Last Login : {{ll | date:'medium'}}
-  </button>
+
+  <button ion-button *ngIf="!isMenu" block color="secondary" (click)="createMenu()">Create Menu</button>
+  <button ion-button *ngIf="isMenu" block (click)="editMenu()">Edit Menu</button>
 
 
   <ion-grid>
     <ion-row>
-
-
-
       <ion-col col-12 col-md-2 class="curs flpAnim ">
         <ion-card class="roundCard" text-center padding-top (click)="gtUsers()">
           <ion-item>
@@ -30,10 +27,6 @@
           </ion-item>
         </ion-card>
       </ion-col>
-
-
-
-
 
     </ion-row>
   </ion-grid>

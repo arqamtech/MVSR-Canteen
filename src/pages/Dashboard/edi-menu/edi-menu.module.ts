@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { AddAdminPage } from './add-admin';
+import { EdiMenuPage } from './edi-menu';
 
 @NgModule({
   declarations: [
-    AddAdminPage,
+    EdiMenuPage,
   ],
   imports: [
-    IonicPageModule.forChild(AddAdminPage),
+    IonicPageModule.forChild(EdiMenuPage),
   ],
 })
-export class AddAdminPageModule {}
+export class EdiMenuPageModule {}

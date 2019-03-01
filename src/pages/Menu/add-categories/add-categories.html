@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Add Category</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-item padding-bottom>
+        <ion-label floating>Category Name</ion-label>
+        <ion-input type="text" autofocus [(ngModel)]="name"></ion-input>
+      </ion-item>
+
+
+      <div text-center>
+        <button ion-button  (click)="checkData()">Add Category</button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, LoadingController, AlertController, ToastController } from 'ionic-angular';
-import { AddUsersPage } from '../../Users/add-users/add-users';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { EditUsersPage } from '../../Users/edit-users/edit-users';
 import * as firebase from 'firebase';
 
 
@@ -36,7 +34,7 @@ export class UsersPage {
     loading.present();
 
 
-    this.db.list(`Users`).snapshotChanges().subscribe(snap => {
+    this.db.list(`User Data/Users`).snapshotChanges().subscribe(snap => {
       this.Users = [];
       snap.forEach(snip => {
         let temp: any = snip.payload.val();
@@ -86,8 +84,6 @@ export class UsersPage {
 
 
 
-  editUser(u) { this.navCtrl.push(EditUsersPage, { user: u }); }
-  addUser() { this.navCtrl.push(AddUsersPage); }
 
 
   presentToast(msg) {

@@ -4,11 +4,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoaderPage } from '../pages/Support/loader/loader';
 import { DashboardPage } from '../pages/MainPages/dashboard/dashboard';
-import { AddAdminPage } from '../pages/MainPages/add-admin/add-admin';
 import { UsersPage } from '../pages/MainPages/users/users';
 import { ProfilePage } from '../pages/Profile/profile/profile';
 import { LoginPage } from '../pages/Auth/login/login';
 import * as firebase from 'firebase';
+import { MenuPage } from '../pages/MainPages/menu/menu';
 
 
 
@@ -30,14 +30,14 @@ export class MyApp {
     public platform: Platform,
     public statusBar: StatusBar,
     public toastCtrl: ToastController,
-    public alertCtrl : AlertController,
+    public alertCtrl: AlertController,
     public splashScreen: SplashScreen
   ) {
     this.initializeApp();
     this.pages = [
       { title: 'DashBoard', component: DashboardPage, icon: "ios-analytics" },
+      { title: 'Menu', component: MenuPage, icon: "ios-paper" },
       { title: 'Users', component: UsersPage, icon: "ios-people" },
-      { title: 'Add Admin', component: AddAdminPage, icon: "ios-person" },
       { title: 'Profile', component: ProfilePage, icon: "ios-people" },
     ];
     this.activePage = this.pages[0];

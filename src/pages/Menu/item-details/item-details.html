@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{item.Name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button clear (click)="editItem()">
+        Edit
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <p ion-text color="primary" item-start>Item Name</p>
+    <p item-end>{{item.Name}}</p>
+  </ion-item>
+
+  <ion-item>
+    <p ion-text color="primary" item-start>Price</p>
+    <p item-end>{{item.Price}}</p>
+  </ion-item>
+  <ion-item>
+    <p ion-text color="primary" item-start>Category</p>
+    <p item-end>{{item.CategoryName}}</p>
+  </ion-item>
+
+  <ion-item>
+    <p ion-text color="primary" item-start>Description</p>
+  </ion-item>
+  <ion-item>
+    <p item-end>{{item.Description}}</p>
+  </ion-item>
+
+
+
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Edit Item</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating>Item Name</ion-label>
+        <ion-input type="text" autofocus [(ngModel)]="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Item Price</ion-label>
+        <ion-input type="text" [(ngModel)]="price"></ion-input>
+      </ion-item>
+
+      <ion-item margin-bottom>
+        <ion-label floating>Description</ion-label>
+        <ion-textarea [(ngModel)]="des"></ion-textarea>
+      </ion-item>
+
+      <div text-center margin-top>
+        <button ion-button (click)="checkData()">Update Item</button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

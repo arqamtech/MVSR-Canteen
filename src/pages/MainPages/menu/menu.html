@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Menu</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button clear float-right (click)="gtCat()">
+    Add Category
+  </button>
+
+  <ion-list>
+    <ion-item *ngFor="let c of cats" (click)="viewItem(c)">
+      <p>{{c.Name}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
