@@ -46,9 +46,11 @@ export class AddItemPage {
       Description: this.des,
       TimeStamp: moment().format()
     }).catch((err) => {
-      this.presentToast(err.message);
+      this.presentToast(err.message); 0
+      this.navCtrl.pop();
       loading.dismiss();
     }).then(() => {
+      this.navCtrl.pop();
       loading.dismiss();
     })
 
