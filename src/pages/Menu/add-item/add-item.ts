@@ -11,7 +11,6 @@ import moment from 'moment';
 })
 export class AddItemPage {
 
-  cat = this.navParams.get("cat");
 
 
   name: string;
@@ -24,7 +23,6 @@ export class AddItemPage {
     public loadingCtrl: LoadingController,
     public navParams: NavParams
   ) {
-    console.log(this.cat);
   }
 
   checkData() {
@@ -42,20 +40,18 @@ export class AddItemPage {
 
     loading.present();
 
-    firebase.database().ref("Items").push({
+    firebase.database().ref("MenuItems").push({
       Name: this.name,
       Price: this.price,
       Description: this.des,
-      CategoryKey : this.cat.key,
-      CategoryName : this.cat.Name,
       TimeStamp: moment().format()
-    }).then((res) => {
-      firebase.database().ref("CatWiseItems").child(this.cat.key).child(res.key).set(true).then(() => {
-        this.navCtrl.pop();
-        this.presentToast("Item Added");
-        loading.dismiss();
-      })
+    }).catch((err) => {
+      this.presentToast(err.message);
+      loading.dismiss();
+    }).then(() => {
+      loading.dismiss();
     })
+
   }
 
 

@@ -39,8 +39,9 @@ export class UsersPage {
       snap.forEach(snip => {
         let temp: any = snip.payload.val();
         temp.key = snip.key;
-        console.log(temp);
-
+        if (!temp.Balance) {
+          temp.Balance = 0;
+        }
         this.Users.push(temp);
       })
       loading.dismiss();

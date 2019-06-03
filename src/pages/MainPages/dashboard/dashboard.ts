@@ -6,6 +6,7 @@ import * as firebase from 'firebase';
 import { CreateMenuPage } from '../../Dashboard/create-menu/create-menu';
 import { EdiMenuPage } from '../../Dashboard/edi-menu/edi-menu';
 import moment from 'moment';
+import { MenuPage } from '../menu/menu';
 @IonicPage()
 @Component({
   selector: 'page-dashboard',
@@ -13,11 +14,8 @@ import moment from 'moment';
 })
 export class DashboardPage {
 
-  ll: string = null;
   users: number = 0;
-
-  isMenu: boolean;
-
+  menuItems: number = 0;
   constructor(
     public navCtrl: NavController,
     public menuCtrl: MenuController,
@@ -26,21 +24,10 @@ export class DashboardPage {
     public navParams: NavParams
   ) {
     this.menuCtrl.enable(true);
-    this.checkMenu();
     this.getUsers();
+    this.getItems();
   }
 
-  checkMenu() {
-    this.db.object(`Menus/${moment().format("DDMMYY")}`).snapshotChanges().subscribe(snap => {
-      if (snap.payload.exists()) {
-        this.isMenu = true;
-      } else {
-        this.isMenu = false;
-      }
-    })
-  }
-  createMenu() { this.navCtrl.push(CreateMenuPage) };
-  editMenu() { this.navCtrl.push(EdiMenuPage) };
   getUsers() {
 
     let loading = this.loadingCtrl.create({
@@ -52,6 +39,20 @@ export class DashboardPage {
       loading.dismiss();
     })
   }
+  getItems() {
+
+    let loading = this.loadingCtrl.create({
+      content: 'Loading...'
+    });
+    loading.present();
+    this.db.list(`MenuItems`).snapshotChanges().subscribe(snap => {
+      this.menuItems = snap.length;
+      loading.dismiss();
+    })
+  }
+
 
   gtUsers() { this.navCtrl.push(UsersPage); }
+  gtMenu() { this.navCtrl.push(MenuPage); }
+
 }

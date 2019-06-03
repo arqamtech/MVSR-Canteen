@@ -6,13 +6,14 @@
       </ion-toolbar>
     </ion-header> -->
     <ion-content class="menuContent">
-      <ion-item text-center margin-vertical no-lines color="light"  >
-        <img src="assets/imgs/logo.png" class="menuLogo" />
+      <ion-item text-center margin-vertical no-lines color="light">
+        Canteen
+        <!-- <img src="assets/imgs/logo.png" class="menuLogo" /> -->
       </ion-item>
 
       <ion-list no-lines *ngIf="full">
-        <button ion-item menuClose [class.activeHighlight]="checkActive(p)" [class.menuItems]="!checkActive(p)" *ngFor="let p of pages"
-          (click)="openPage(p)">
+        <button ion-item menuClose [class.activeHighlight]="checkActive(p)" [class.menuItems]="!checkActive(p)"
+          *ngFor="let p of pages" (click)="openPage(p)">
           <ion-icon item-left [name]="p.icon"></ion-icon>
           {{p.title}}
         </button>
@@ -21,7 +22,7 @@
 
 
     </ion-content>
-    <ion-footer text-center no-lines >
+    <ion-footer text-center no-lines>
       <button ion-button clear color="dark" (click)="signOutConfirm()">Sign Out</button>
     </ion-footer>
   </ion-menu>

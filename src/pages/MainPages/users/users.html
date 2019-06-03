@@ -8,12 +8,53 @@
 </ion-header>
 
 
-<ion-content>
-
-
-  <ion-grid>
+<ion-content margin-top>
+  <ion-grid margin-top>
     <ion-row>
-      <ion-col col-12 col-md-3 *ngFor="let u of Users">
+      <ion-col col-12 col-md-10 push-md-1>
+
+        <ion-navbar color="primary" margin-top>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-1></ion-col>
+              <ion-col col-4>
+                <ion-title>Name</ion-title>
+              </ion-col>
+              <ion-col col-3>
+                <ion-title>Phone</ion-title>
+              </ion-col>
+              <ion-col col-2>
+                <ion-title>Balance</ion-title>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-navbar>
+
+        <ion-item *ngFor="let u of Users">
+          <ion-grid>
+            <ion-row >
+              <ion-col col-1></ion-col>
+              <ion-col col-4>{{u.Name}}</ion-col>
+              <ion-col col-3>{{u.Phone}}</ion-col>
+              <ion-col col-2 text-center>{{u.Balance}}</ion-col>
+              <ion-col col-2>
+                <button ion-button>
+                  Recharge
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- <ion-grid>
+    <ion-row>
+
+
+
+
+      <ion-col col-12 col-md-3>
         <ion-card>
           <ion-card-content>
             <ion-card-title>{{u.Name}}</ion-card-title>
@@ -30,7 +71,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
+ -->
   <!-- <ion-grid class="strip">
     <ion-row>
       <ion-col push-md-2 col-md-8 col-12>

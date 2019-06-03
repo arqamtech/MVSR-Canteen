@@ -10,13 +10,13 @@
 
 <ion-content padding>
 
-  <button ion-button *ngIf="!isMenu" block color="secondary" (click)="createMenu()">Create Menu</button>
+  <!-- <button ion-button *ngIf="!isMenu" block color="secondary" (click)="createMenu()">Create Menu</button>
   <button ion-button *ngIf="isMenu" block (click)="editMenu()">Edit Menu</button>
-
+ -->
 
   <ion-grid>
     <ion-row>
-      <ion-col col-12 col-md-2 class="curs flpAnim ">
+      <ion-col col-12 col-md-3 class="curs flpAnim ">
         <ion-card class="roundCard" text-center padding-top (click)="gtUsers()">
           <ion-item>
             <ion-icon item-start name="ios-people"></ion-icon>
@@ -27,6 +27,19 @@
           </ion-item>
         </ion-card>
       </ion-col>
+
+      <ion-col col-12 col-md-3 class="curs flpAnim ">
+        <ion-card class="roundCard" text-center padding-top (click)="gtMenu()">
+          <ion-item>
+            <ion-icon item-start name="pizza"></ion-icon>
+            <h1 ion-text item-end color="dark" padding>{{menuItems}}</h1>
+          </ion-item>
+          <ion-item text-center color="primary">
+            <h2 ion-text ion-text color="tableTopC">Menu Items</h2>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
 
     </ion-row>
   </ion-grid>
